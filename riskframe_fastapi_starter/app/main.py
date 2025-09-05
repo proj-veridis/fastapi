@@ -23,3 +23,6 @@ def health():
 @app.get("/version", tags=["meta"])
 def version():
     return {"version": "0.1.0", "env": os.getenv("ENV", "production")}
+@app.get("/boom", tags=["meta"])
+def boom():
+    raise RuntimeError("Test error for Sentry integration")
